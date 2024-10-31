@@ -8,6 +8,9 @@
 
 version: 2
 
+env:
+  - PACKAGE_NAME=github.com/135yshr/t2e
+
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -18,7 +21,6 @@ before:
 builds:
   - id: t2e
     binary: t2e
-    main: ./cmd/t2e
     env:
       - CGO_ENABLED=0
     goos:
@@ -27,10 +29,10 @@ builds:
       - darwin
     ldflags:
       - -s -w
-      - -X main.version={{ .Version }}
-      - -X main.commit={{ .Commit }}
-      - -X main.date={{ .Date }}
-      - -X main.builtBy=goreleaser
+      - -X {{ .Env.PACKAGE_NAME }}/cmd.version={{ .Version }}
+      - -X {{ .Env.PACKAGE_NAME }}/cmd.commit={{ .Commit }}
+      - -X {{ .Env.PACKAGE_NAME }}/cmd.date={{ .Date }}
+      - -X {{ .Env.PACKAGE_NAME }}/cmd.builtBy=goreleaser
     tags:
       - release
 
