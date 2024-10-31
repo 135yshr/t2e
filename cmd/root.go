@@ -13,13 +13,10 @@ import (
 
 //nolint:forbidigo,revive // Output the results to the terminal
 func newRootCmd() *cobra.Command {
-	// rootCmd represents the base command when called without any subcommands
 	return &cobra.Command{
 		Use:     "t2e",
 		Version: Version(),
 		Short:   "This program converts the specified time to epoch time.",
-		// Uncomment the following line if your bare application
-		// has an action associated with it:
 		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println(time.Now().Unix())
 
