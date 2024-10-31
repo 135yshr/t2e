@@ -4,11 +4,14 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"os"
+	"time"
 
 	"github.com/spf13/cobra"
 )
 
+//nolint:forbidigo,revive // Output the results to the terminal
 func newRootCmd() *cobra.Command {
 	// rootCmd represents the base command when called without any subcommands
 	return &cobra.Command{
@@ -17,7 +20,11 @@ func newRootCmd() *cobra.Command {
 		Short:   "This program converts the specified time to epoch time.",
 		// Uncomment the following line if your bare application
 		// has an action associated with it:
-		// Run: func(cmd *cobra.Command, args []string) { },
+		RunE: func(cmd *cobra.Command, args []string) error {
+			fmt.Println(time.Now().Unix())
+
+			return nil
+		},
 	}
 }
 
