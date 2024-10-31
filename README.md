@@ -21,7 +21,7 @@ $ brew install 135yshr/tap/t2e
 When executed without arguments, the current time is converted to epic time.
 
 ```bash-session
-$ t2e 
+$ t2e
 1729987200
 ```
 
@@ -40,7 +40,20 @@ $ t2e --add-min 5
 
 ## Prerequisites
 
-- Go 1.23 or later
+- [Go](https://go.dev/) 1.23 or later
+- [pre-commit](https://pre-commit.com/)
+- [golangci-lint](https://golangci-lint.run/)
+- [cobra](https://github.com/spf13/cobra)
+- [viper](https://github.com/spf13/viper)
+
+## Development
+
+```bash-session
+$ git clone https://github.com/135yshr/t2e
+$ cd ./t2e
+$ pre-commit install
+$ make test
+```
 
 ## Contributing
 
